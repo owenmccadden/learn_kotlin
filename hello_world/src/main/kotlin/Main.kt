@@ -65,6 +65,7 @@ fun sandbox() {
     // if i is divisible by 3 print fizz
     // if i is divisible by 5 print buzz
     // if i is divisible by both 3 and 5 print fizzbuzz
+
 fun fizzBuzz(num: Int) {
     for (i in 1..num) {
         if (i % 3 == 0 && i % 5 != 0) {
