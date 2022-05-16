@@ -1,5 +1,5 @@
 fun main(args: Array<String>) {
-    mapSyntax()
+
 }
 
 // Control Flow Logic
@@ -89,4 +89,38 @@ fun mapSyntax() {
     newMap[4] = "d"
     
     newMap.forEach { (key, value) -> println("$key -> $value")}
+}
+
+// vararg, named args, default parameter values
+
+fun multipleGreeting(greeting: String, vararg names: String) {
+    // vararg allows for a variable number of arguments of a certain typee
+    names.forEach { name ->
+        println("$greeting $name")
+    }
+}
+
+fun varArgSyntax() {
+    // we can pass 0-n comma separated values as a vararg parameter like so
+    multipleGreeting("Hello", "Owen", "Thomas", "Michael")
+
+    // we can also use the spread operator to pass the contents of an array
+    var exampleNames = arrayOf("Owen", "Michael", "James")
+    multipleGreeting("Hello", *exampleNames)
+}
+
+fun namedArgsSyntax() {
+    // we can use the parameter names in the function invocation to avoid issues with parameter order
+    // must used named argument syntax for all or none of the args
+    multipleGreeting(names = *arrayOf("Owen", "thomas"), greeting = "Hello")
+}
+
+fun defaultParamsSyntax(input: Int = 0) {
+    println(input)
+}
+
+fun testDefaultParams() {
+    // we can set default values in the function definition similar to python
+    defaultParamsSyntax()
+    defaultParamsSyntax(10)
 }
